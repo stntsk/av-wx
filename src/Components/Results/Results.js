@@ -1,6 +1,6 @@
 import React from "react";
 
-const Results = (props) => {
+const Results = ({metarSearchResults, tafSearchResults}) => {
     //const [stationWeathers, setStationWeather] = useState([])
 
     /*const addStationWeather = stationWeather => {
@@ -14,9 +14,7 @@ const Results = (props) => {
 
     return (
         <div>
-            <p>
-                METAR at {props.searchResults}
-            </p>
+            {metarSearchResults && tafSearchResults ? <p>METAR {metarSearchResults} <br/>{tafSearchResults}</p> : <p>Search for a station</p>}
         </div>
     )
 }

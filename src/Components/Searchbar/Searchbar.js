@@ -13,7 +13,8 @@ const Searchbar = (props) => {
     }
 
     const search = () => {
-        props.onSearch(term);
+        props.onSearchMetar(term);
+        props.onSearchTaf(term);
     }
 
     return (

@@ -8,19 +8,26 @@ import CheckWX from './CheckWX/CheckWX';
 
 function App() {
 
-  const [station, setStation] = useState(null);
+  const [metar, setMetar] = useState(null);
+  const [taf, setTaf] = useState(null);
 
-  const search = (term) => {
-      CheckWX.search(term).then(searchResults => {
-          setStation(searchResults)
+  const searchMetar = (term) => {
+      CheckWX.searchMetar(term).then(metarSearchResults => {
+          setMetar(metarSearchResults)
       });
+  };
+
+  const searchTaf = (term) => {
+    CheckWX.searchTaf(term).then(tafSearchResults => {
+      setTaf(tafSearchResults);
+    });
   };
   
   return (
     <div>
       <Header />
-      <Searchbar onSearch={search}/>
-      <Results searchResults={station}/>
+      <Searchbar onSearchMetar={searchMetar} onSearchTaf={searchTaf}/>
+      <Results metarSearchResults={metar} tafSearchResults={taf}/>
     </div>
   );
 }
