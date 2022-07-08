@@ -4,12 +4,14 @@ import Header from './Header/header';
 import Searchbar from './Searchbar/Searchbar';
 import Results from './Results/Results';
 import CheckWX from './CheckWX/CheckWX';
+import Footer from './Footer/footer'
 
 
 function App() {
 
   const [metar, setMetar] = useState(null);
   const [taf, setTaf] = useState(null);
+  const [station, setStation] = useState(null);
 
   const searchMetar = (term) => {
       CheckWX.searchMetar(term).then(metarSearchResults => {
@@ -22,12 +24,19 @@ function App() {
       setTaf(tafSearchResults);
     });
   };
+
+  const searchStation = (term) => {
+    CheckWX.searchStation(term).then(stationSearchResults => {
+      setStation(stationSearchResults);
+    });
+  };
   
   return (
     <div>
       <Header />
-      <Searchbar onSearchMetar={searchMetar} onSearchTaf={searchTaf}/>
-      <Results metarSearchResults={metar} tafSearchResults={taf}/>
+      <Searchbar onSearchMetar={searchMetar} onSearchTaf={searchTaf} onSearchStation={searchStation}/>
+      <Results metarSearchResults={metar} tafSearchResults={taf} stationSearchResults={station}/>
+      <Footer />
     </div>
   );
 }

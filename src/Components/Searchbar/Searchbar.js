@@ -12,20 +12,25 @@ const Searchbar = (props) => {
         setTerm(event.target.value);
     }
 
-    const search = () => {
+    const search = (e) => {
+        e.preventDefault();
         props.onSearchMetar(term);
         props.onSearchTaf(term);
+        props.onSearchStation(term);
+        setTerm('');
     }
 
     return (
         <div>
-            <input 
-                value={term} 
-                onChange={handleChange}
-                type='text'
-                placeholder="Enter station ICAO code"
-                />
-            <button className="SearchButton" onClick={search}>SEARCH</button>
+            <form onSubmit={search}>
+                <input 
+                    value={term} 
+                    onChange={handleChange}
+                    type='text'
+                    placeholder="Enter station ICAO code"
+                    />
+                <input type='submit' value='SEARCH'/>
+            </form>
         </div>    
     )
 }
