@@ -33,7 +33,7 @@ function App() {
   
   return (
     <div>
-      <Header />
+      <Header /> 
       <Searchbar onSearchMetar={searchMetar} onSearchTaf={searchTaf} onSearchStation={searchStation}/>
       <Results metarSearchResults={metar} tafSearchResults={taf} stationSearchResults={station}/>
       <Footer />

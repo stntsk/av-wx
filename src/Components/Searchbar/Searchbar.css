@@ -1,0 +1,23 @@
+.search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form {
+    
+    margin: auto;
+}
+
+#box {
+    background-color: #dcc7aa;
+    
+}
+
+#button {
+    margin-top: 1rem;
+    background-color: #dcc7aa;
+    color: #30415d;
+    border-radius: 10%;
+}

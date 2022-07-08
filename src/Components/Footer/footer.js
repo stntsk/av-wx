@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
+import './Footer.css'
 
 const Footer = () => {
-    const [time, setTime] = useState(new Date().toLocaleString())
+    const [time, setTime] = useState(new Date().toUTCString())
     
     useEffect(() => {
         const interval = setInterval(() => tick(), 1000
@@ -11,13 +12,13 @@ const Footer = () => {
     })
 
     const tick = () => {
-        setTime(new Date().toLocaleString());
+        setTime(new Date().toUTCString());
       };
 
     return(
-        <div>
+        <div class='footer'>
             <p><span>&#169;</span> stntsk</p>
-            <p>Local time: {time}</p>
+            <p>UTC: {time}</p>
         </div>
     )
 }

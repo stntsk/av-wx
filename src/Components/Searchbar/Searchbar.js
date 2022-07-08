@@ -1,13 +1,11 @@
 import React, { useState } from "react";
+import './Searchbar.css'
 
 
 const Searchbar = (props) => {
     
     const  [term, setTerm]  = useState('')
 
-
-    
-    
     const handleChange = (event) => {
         setTerm(event.target.value);
     }
@@ -21,15 +19,20 @@ const Searchbar = (props) => {
     }
 
     return (
-        <div>
-            <form onSubmit={search}>
-                <input 
+        <div >
+            <form onSubmit={search} class='search'>
+                <div class='form'>
+                    <input 
                     value={term} 
                     onChange={handleChange}
                     type='text'
                     placeholder="Enter station ICAO code"
+                    id='box'
                     />
-                <input type='submit' value='SEARCH'/>
+                </div>
+                <div class='form'>
+                    <input type='submit' value='SEARCH' id='button'/>
+                </div>    
             </form>
         </div>    
     )
