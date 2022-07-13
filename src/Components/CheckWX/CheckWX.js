@@ -10,13 +10,10 @@ const CheckWX = {
             .then(response => {
                 return response.json();
             }).then(jsonResponse => {
-                if(!jsonResponse.data) {
-                    return [];
+                if(jsonResponse.results === 0) {
+                    return ;
                 }
-                
                 return jsonResponse.data
-                
-
             })
     },
 
@@ -28,13 +25,11 @@ const CheckWX = {
             .then(response => {
                 return response.json();
             }).then(jsonResponse => {
-                if(!jsonResponse.data) {
-                    return [];
+                if(jsonResponse.results === 0) {
+                    return ;
                 }
                 
                 return jsonResponse.data
-                
-
             })
     },
 
@@ -46,10 +41,9 @@ const CheckWX = {
             .then(response => {
                 return response.json();
             }).then(jsonResponse => {
-                if(!jsonResponse.data) {
-                    return [];
-                }
-                //console.log(jsonResponse.data[0].elevation.feet)
+                if(jsonResponse.results === 0) {
+                    return ;
+                }                
                 return {
                     city: jsonResponse.data[0].city,
                     country: jsonResponse.data[0].country.name,
@@ -60,10 +54,6 @@ const CheckWX = {
                     timezone: jsonResponse.data[0].timezone.gmt,
                     dst: jsonResponse.data[0].timezone.dst
                 }
-                
-                
-                
-
             })
     }
 }

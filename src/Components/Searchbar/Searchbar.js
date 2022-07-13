@@ -26,8 +26,10 @@ const Searchbar = (props) => {
                     value={term} 
                     onChange={handleChange}
                     type='text'
-                    placeholder="Enter station ICAO code"
+                    placeholder="Enter station ICAO code(xxxx)"
                     id='box'
+                    required
+                    pattern="[a-zA-Z]{4}"
                     />
                 </div>
                 <div class='form'>

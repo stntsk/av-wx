@@ -12,6 +12,7 @@
 
 #box {
     background-color: #dcc7aa;
+    min-width: 180px;
     
 }
 
