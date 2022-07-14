@@ -13,7 +13,7 @@ const Station = ({station}) => {
                     <li>Name: {station.name}</li> <br/>
                     <li>Runway ident: {station.runways.map(runway => (runway.ident+' '))}</li><br/>
                     <li>Runway length: {station.runways.map(runway => (runway.length_ft+'ft '))}</li><br/>
-                    <li><a href={station.wikipedia} target='_blank'>Wikipedia</a></li>
+                    <li><a href={station.wikipedia} target='_blank' rel="noreferrer">Wikipedia</a></li>
                     
                 </ul>
                 </div> : <p>Nothing to display</p>}
