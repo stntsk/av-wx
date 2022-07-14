@@ -16,7 +16,6 @@ function App() {
   const searchMetar = (term) => {
       setMetar(null);
       AvWX.searchMetar(term).then(metarSearchResults => {
-
           setMetar(metarSearchResults)
       });
   };
