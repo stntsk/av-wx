@@ -9,12 +9,12 @@ const Station = ({station}) => {
                 <ul>
                     <li>City: {station.city}</li> <br/>
                     <li>Country: {station.country}</li> <br/>
-                    <li>Elevation: {station.elevation}</li> <br/>
-                    <li>Coordinates: {station.coordinates}</li><br/>
+                    <li>Elevation: {station.elevation} ft</li> <br/>
                     <li>Name: {station.name}</li> <br/>
-                    <li>Status: {station.status}</li> <br/>
-                    <li>Timezone: {station.timezone}</li> <br/>
-                    <li>Daylight saving time: {station.dst}</li>
+                    <li>Runway ident: {station.runways.map(runway => (runway.ident+' '))}</li><br/>
+                    <li>Runway length: {station.runways.map(runway => (runway.length_ft+'ft '))}</li><br/>
+                    <li><a href={station.wikipedia} target='_blank'>Wikipedia</a></li>
+                    
                 </ul>
                 </div> : <p>Nothing to display</p>}
                 

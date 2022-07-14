@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import Header from './Header/header';
 import Searchbar from './Searchbar/Searchbar';
 import Results from './Results/Results';
-import CheckWX from './CheckWX/CheckWX';
+import AvWX from './AvWX/AvWX';
 import Footer from './Footer/footer'
 
 
@@ -14,19 +14,23 @@ function App() {
   const [station, setStation] = useState(null);
 
   const searchMetar = (term) => {
-      CheckWX.searchMetar(term).then(metarSearchResults => {
+      setMetar(null);
+      AvWX.searchMetar(term).then(metarSearchResults => {
+
           setMetar(metarSearchResults)
       });
   };
 
   const searchTaf = (term) => {
-    CheckWX.searchTaf(term).then(tafSearchResults => {
+    setTaf(null);
+    AvWX.searchTaf(term).then(tafSearchResults => {
       setTaf(tafSearchResults);
     });
   };
 
   const searchStation = (term) => {
-    CheckWX.searchStation(term).then(stationSearchResults => {
+    setStation(null);
+    AvWX.searchStation(term).then(stationSearchResults => {
       setStation(stationSearchResults);
     });
   };

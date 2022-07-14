@@ -6,8 +6,8 @@ const Weather = ({metar, taf}) => {
 
     return (
         <div>
-            {metar ? <p>METAR {metar}</p> : <p>Search for a valid station</p>}
-            {taf && <p>{taf}</p>}
+            {metar ? <p>METAR {metar}</p> : <p>Search for a station</p>}
+            {taf && <p>TAF {taf}</p>}
         </div>
     )
 };
