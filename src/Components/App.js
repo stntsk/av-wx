@@ -14,15 +14,17 @@ function App() {
   const [station, setStation] = useState(null);
 
   const searchMetar = (term) => {
-      setMetar(null);
+      setMetar('Request pending');
       AvWX.searchMetar(term).then(metarSearchResults => {
+        setMetar(null);
           setMetar(metarSearchResults)
       });
   };
 
   const searchTaf = (term) => {
-    setTaf(null);
+    setTaf('Request pending');
     AvWX.searchTaf(term).then(tafSearchResults => {
+      setTaf(null);
       setTaf(tafSearchResults);
     });
   };

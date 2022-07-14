@@ -7,11 +7,14 @@ const AvWX = {
             {headers: {
                 'Authorization': 'BEARER tEc221d39yxtWht8AibLt5EnUF8JeddqbOoOdyQEWyE'
             }})
-            .then(response => {
+            .then(response => { 
+                if(response.status === 204 || response.status === 400) {
+                    return ;
+                }
                 return response.json();
             }).then(jsonResponse => {
                 if(!jsonResponse) {
-                    return ;
+                    return 'Request failed';
                 }
                 return jsonResponse.raw
             })
@@ -23,12 +26,14 @@ const AvWX = {
                 'Authorization': 'BEARER tEc221d39yxtWht8AibLt5EnUF8JeddqbOoOdyQEWyE'
             }})
             .then(response => {
+                if(response.status === 204 || response.status === 400) {
+                    return ;
+                }
                 return response.json();
             }).then(jsonResponse => {
                 if(!jsonResponse) {
-                    return ;
+                    return 'Request failed';
                 }
-                
                 return jsonResponse.raw
             })
     },
@@ -43,8 +48,7 @@ const AvWX = {
             }).then(jsonResponse => {
                 if(!jsonResponse) {
                     return ;
-                }   
-                console.log(jsonResponse)             
+                }               
                 return {
                     city: jsonResponse.city,
                     country: jsonResponse.country,
